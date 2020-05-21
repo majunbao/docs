@@ -1,0 +1,516 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0"
+    />
+    <meta content=" yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <style>
+      /***************************
+        <UC分享弹出>*****************************/
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        color: #333;
+        font-family: '黑体';
+      }
+
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      ul,
+      ol,
+      li,
+      dl,
+      dt,
+      dd,
+      input,
+      img,
+      select,
+      textarea {
+        margin: 0;
+        padding: 0;
+        outline: 0;
+        border: 0;
+        list-style: none;
+        vertical-align: middle;
+        font-weight: normal;
+      }
+
+      img {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border: 0;
+        outline: 0;
+        vertical-align: middle;
+        display: block;
+        max-width: 100%;
+        width: 20vw;
+        margin: 0 auto;
+      }
+
+      a {
+        text-decoration: none;
+        cursor: default;
+      }
+
+      .share-wx-ico span {
+        background-color: #0fc71a;
+      }
+
+      .share-py-ico span {
+        background-color: #d9d9d9;
+      }
+
+      .share-vblong-ico span {
+        background-color: #ffde65;
+      }
+
+      .share-qq-ico span {
+        background-color: #47a1ed;
+      }
+
+      .share-qqhy-ico span {
+        background-color: #47a1ed;
+      }
+
+      .share-tb-ico span {
+        background-color: #0086ff;
+      }
+
+      .share-txwb-ico span {
+        background-color: #44a4e1;
+      }
+
+      .share-rr-ico span {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        width: 43px;
+        height: 43px;
+      }
+
+      .share-dou-ico span {
+        background-color: #06bf12;
+      }
+
+      .vr-share {
+        background-color: #fafafa;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+
+      .vr-share ul {
+        overflow: hidden;
+        zoom: 1;
+        margin: 0 10px;
+        padding-bottom: 25px;
+      }
+
+      .vr-share li {
+        float: left;
+        width: 50%;
+        text-align: center;
+        padding: 20px 0 0;
+        margin-bottom: -5px;
+      }
+
+      .vr-share li:last-child {
+        /* 				clear: both; */
+      }
+
+      .vr-share ul a {
+        display: block;
+        line-height: 22px;
+        color: #333;
+        padding-top: 5px;
+        font-size: 14px;
+      }
+
+      .vr-share ul a span {
+        width: 45px;
+        height: 45px;
+        overflow: hidden;
+        margin: 0 auto;
+        display: block;
+        border-radius: 10px;
+        margin-bottom: 5px;
+      }
+
+      .vr-share ul span:before {
+        height: 30px;
+        content: '';
+        display: block;
+        margin: -15px auto 0;
+        position: relative;
+        top: 50%;
+        background-size: 126px auto;
+      }
+
+      .share-wx-ico span:before,
+      .share-py-ico span:before,
+      .share-vblong-ico span:before,
+      .share-qq-ico span:before {
+      }
+
+      .vr-share ul .share-wx-ico span:before {
+        background: url(/res/images/share/ic_wechat_cor_128.png) no-repeat;
+        -webkit-background-size: 126px auto;
+        background-size: 126px auto;
+        width: 33px;
+      }
+
+      .vr-share ul .share-py-ico span:before {
+        width: 30px;
+        background-position: -34px 0;
+      }
+
+      .vr-share ul .share-vblong-ico span:before {
+        width: 34px;
+        background-position: -65px 0;
+      }
+
+      .vr-share ul .share-qq-ico span:before {
+        width: 35px;
+        background-position: 0px -67px;
+        height: 33px;
+        margin-top: -16px;
+      }
+
+      .vr-share ul .share-tb-ico span:before {
+        width: 29px;
+        background-position: -67px -31px;
+      }
+
+      .vr-share ul .share-rr-ico span:before {
+        width: 38px;
+        background-position: 0px -34px;
+      }
+
+      .vr-share ul .share-dou-ico span:before {
+        width: 26px;
+        background-position: -38px -32px;
+      }
+
+      .vr-share ul .share-txwb-ico span:before {
+        width: 36px;
+        background-position: -40px -70px;
+      }
+
+      .vr-share ul .share-qqhy-ico span:before {
+        width: 28px;
+        background-position: -99px 0;
+      }
+
+      .vr-share-btn {
+        display: block;
+        font-size: 18px;
+        color: #ff742f;
+        border-top: 1px solid #dddddd;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+      }
+
+      .mask-bg {
+        position: fixed;
+        z-index: 999999;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        left: 0;
+        top: 0;
+        right: 0;
+        display: none;
+      }
+
+      .share-img {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        position: absolute;
+        z-index: 30;
+      }
+
+      .share-bg {
+        position: fixed;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 20;
+        top: 0;
+        display: table;
+      }
+
+      .share-box {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+      }
+
+      .share-content {
+        background: #fff;
+        border-radius: 10px;
+        margin: 0 10%;
+        padding: 20px;
+      }
+
+      .share-content h1 {
+        color: #e94220;
+        font-size: 18px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 15px;
+      }
+
+      .share-content .vr-share {
+        position: inherit;
+        background: #fff;
+      }
+
+      .share-content .vr-share ul {
+        margin: 0 auto;
+      }
+
+      .share-content .vr-share ul li {
+        padding-top: 10px;
+      }
+
+      .share-content button {
+        background: #e94220;
+        border: none;
+        color: #fff;
+        line-height: 40px;
+        display: block;
+        width: 100%;
+        border-radius: 5px;
+        font-family: '黑体';
+        font-size: 14px;
+      }
+    </style>
+    <title></title>
+    <script
+      type="text/javascript"
+      src="http://3gimg.qq.com/html5/js/qb.js?v=1"
+    ></script>
+  </head>
+
+  <body onload="onloaded()">
+    <div class="share-bg">
+      <div class="share-box">
+        <div class="share-content">
+          <h1>分享到</h1>
+          <div id="vr-share" class="vr-share">
+            <ul>
+              <li class="jump_wrap one" onclick="doShare('weixinFriend')">
+                <img
+                  src="http://qmwapp.51ygwl.com/qmw/weixin20/resource-xdz/img/ic_wechatmoments_cor_128.png"
+                />
+                <a class="share-py-ico" href="javascript:void(0)">微信朋友圈</a>
+              </li>
+              <li class="jump_wrap two" onclick="doShare('weixin')">
+                <img
+                  src="http://qmwapp.51ygwl.com/qmw/weixin20/resource-xdz/img/ic_wechat_cor_128.png"
+                />
+                <a class="share-wx-ico" href="javascript:void(0)">微信好友</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="share-img">
+      <p style="padding: 10px">正在准备分享,请稍候...</p>
+    </div>
+    <script src="http://e-static.oss-cn-shanghai.aliyuncs.com/js/jquery-1.9.0.min.js"></script>
+    <script src="http://e-static.oss-cn-shanghai.aliyuncs.com/js/base64.min.js"></script>
+    <script type="text/javascript">
+      var stype = 'weixin';
+      var intervalId;
+      function onloaded() {
+        intervalId = setInterval(checkInited, 200);
+        document.querySelector('.share-bg').style.display = 'table';
+        document.querySelector('.share-img').style.display = 'none';
+      }
+
+      function checkInited() {
+        if (typeof browser != 'undefined') {
+          if (
+            typeof browser.app != 'undefined' ||
+            typeof window.qb != 'undefined'
+          ) {
+            clearInterval(intervalId);
+          }
+        }
+      }
+
+      var urlparamss = parseQueryString(document.location.toString());
+      var url_content = urlparamss.e;
+      var decode_url = Base64.decode(url_content);
+      var obj_url = JSON.parse(decode_url);
+      var title = obj_url.title;
+      var description = obj_url.description;
+      var url = obj_url.url;
+      var img_url = obj_url.img;
+      var ua = window.navigator.userAgent.toLowerCase();
+      //通过正则表达式匹配ua中是否含有MicroMessenger字符串
+      if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+        location.href = url;
+      }
+
+      function parseQueryString(url) {
+        try {
+          var str = url.split('?')[1];
+          if (!str) return undefined;
+
+          var result = {};
+          var items = str.split('&');
+          var arr;
+          for (var i = 0; i < items.length; i++) {
+            arr = items[i].split('=');
+            result[arr[0]] = arr[1];
+          }
+          return result;
+        } catch (error) {
+          return undefined;
+        }
+      }
+      function doShare(share_type) {
+        var stype = share_type;
+        var cus_txt = '';
+        desc = description.replace('\n', '\r\n');
+
+        var ah = {
+          url: 'https://blog.51cto.com/14362405/2401331',
+          title: 'title',
+          description: 'desc',
+          img_url: img_url,
+          img_title: '图片的标题',
+          cus_txt: 'cus_txt',
+
+          to_app: 0
+        };
+        alert(JSON.stringify(ah))
+
+        var to_app = 1;
+        if (stype == 'weixinFriend') {
+          to_app = 8;
+        }
+        if (stype == 'weixin') {
+        //   ah.url = url;
+        }
+        if (stype == 'QQ') {
+          to_app = 4;
+          ah.url = url;
+        }
+        if (stype == 'QZone') {
+          to_app = 3;
+          ah.url = url;
+        }
+        if (stype == 'sinaWeibo') {
+          to_app = 11;
+        }
+        ah.to_app = to_app;
+        if (typeof browser != 'undefined') {
+          if (typeof browser.app != 'undefined') {
+            browser.app.share(ah);
+          }
+        } else {
+          if (typeof window.qb != 'undefined') {
+            window.qb.share(ah);
+          }
+        }
+        setTimeout(function() {
+          document.querySelector('.share-bg').style.display = 'table';
+          document.querySelector('.share-img').style.display = 'none';
+        }, 3000);
+      }
+    //   $(function() {
+    //     var stype = window.location.href
+    //       .split('?')[1]
+    //       .split('&')[1]
+    //       .split('=')[1];
+
+    //     $('.jump_wrap').on('click', function() {
+    //       var cus_txt = '';
+    //       desc = description.replace('\n', '\r\n');
+
+    //       var ah = {
+    //         url: url,
+    //         title: title,
+    //         description: desc,
+    //         img_url: img_url,
+    //         img_title: '图片的标题',
+    //         cus_txt: cus_txt
+    //       };
+    //       var to_app = 1;
+    //       if (stype == 'weixinFriend') {
+    //         to_app = 8;
+    //       }
+    //       if (stype == 'weixin') {
+    //         ah.url = url;
+    //       }
+    //       if (stype == 'QQ') {
+    //         to_app = 4;
+    //         ah.url = url;
+    //       }
+    //       if (stype == 'QZone') {
+    //         to_app = 3;
+    //         ah.url = url;
+    //       }
+    //       if (stype == 'sinaWeibo') {
+    //         to_app = 11;
+    //       }
+
+
+    //       ah.to_app = to_app;
+    //       if (typeof browser != 'undefined') {
+    //         if (typeof browser.app != 'undefined') {
+    //           browser.app.share(ah);
+    //         }
+    //       } else {
+    //         if (typeof window.qb != 'undefined') {
+    //           window.qb.share(ah);
+    //         }
+    //       }
+    //       setTimeout(function() {
+    //         document.querySelector('.share-bg').style.display = 'table';
+    //         document.querySelector('.share-img').style.display = 'none';
+    //       }, 3000);
+    //     });
+
+    //     if (stype == 'weixinFriend') {
+    //       $('.two').hide();
+    //       $('.one').click();
+    //     } else if (stype == 'weixin') {
+    //       $('.one').hide();
+    //     //   $('.two').click();
+    //     }
+    //   });
+    </script>
+    <script
+      type="text/javascript"
+      src="http://jsapi.qq.com/get?api=app.share"
+    ></script>
+    
+  </body>
+</html>
